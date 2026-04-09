@@ -1,4 +1,5 @@
---LOAD WALKSPEED GUI SCRIPT
+--Make Fly Only PC Working
+-- Version: 3.1
 
 -- Instances:
 
@@ -38,6 +39,17 @@ local UICorner_15 = Instance.new("UICorner")
 local TextLabel_4 = Instance.new("TextLabel")
 local Close = Instance.new("TextButton")
 local UICorner_16 = Instance.new("UICorner")
+local ButtonFly = Instance.new("TextButton")
+local UICorner_17 = Instance.new("UICorner")
+local Update = Instance.new("TextLabel")
+local FrameFLY = Instance.new("Frame")
+local FLYOnlyPC = Instance.new("TextLabel")
+local FlyButton = Instance.new("TextButton")
+local UICorner_18 = Instance.new("UICorner")
+local TextLabel_5 = Instance.new("TextLabel")
+local UICorner_19 = Instance.new("UICorner")
+local ButtonME = Instance.new("TextButton")
+local UICorner_20 = Instance.new("UICorner")
 
 --Properties:
 
@@ -50,7 +62,7 @@ MFrame.Parent = WalkSpeedGUI
 MFrame.BackgroundColor3 = Color3.fromRGB(126, 156, 255)
 MFrame.BorderColor3 = Color3.fromRGB(0, 0, 0)
 MFrame.BorderSizePixel = 0
-MFrame.Position = UDim2.new(0, 382, 0, 88)
+MFrame.Position = UDim2.new(0, 385, 0, 64)
 MFrame.Size = UDim2.new(0, 279, 0, 357)
 MFrame.Visible = false
 
@@ -62,7 +74,7 @@ SpeedBox.BorderSizePixel = 0
 SpeedBox.Position = UDim2.new(0.0507965647, 0, 0.263397396, 0)
 SpeedBox.Size = UDim2.new(0, 248, 0, 62)
 SpeedBox.Font = Enum.Font.SourceSans
-SpeedBox.Text = "16 or more speed"
+SpeedBox.Text = "16 or more Speed "
 SpeedBox.TextColor3 = Color3.fromRGB(0, 0, 0)
 SpeedBox.TextScaled = true
 SpeedBox.TextSize = 14.000
@@ -259,8 +271,8 @@ Frame.Parent = WalkSpeedGUI
 Frame.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
 Frame.BorderColor3 = Color3.fromRGB(0, 0, 0)
 Frame.BorderSizePixel = 0
-Frame.Position = UDim2.new(0, 308, 0, 7)
-Frame.Size = UDim2.new(0, 427, 0, 449)
+Frame.Position = UDim2.new(0, 291, 0, 16)
+Frame.Size = UDim2.new(0, 470, 0, 509)
 
 UICorner_13.Parent = Frame
 
@@ -269,7 +281,7 @@ Number.Parent = Frame
 Number.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
 Number.BorderColor3 = Color3.fromRGB(0, 0, 0)
 Number.BorderSizePixel = 0
-Number.Position = UDim2.new(0.129107982, 0, 0.198689952, 0)
+Number.Position = UDim2.new(0.0599032156, 0, 0.149700955, 0)
 Number.Size = UDim2.new(0, 316, 0, 177)
 Number.Image = "rbxassetid://74391208102778"
 
@@ -280,7 +292,7 @@ Button.Parent = Frame
 Button.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
 Button.BorderColor3 = Color3.fromRGB(0, 0, 0)
 Button.BorderSizePixel = 0
-Button.Position = UDim2.new(0.129107982, 0, 0.604803503, 0)
+Button.Position = UDim2.new(0.0599032156, 0, 0.515217841, 0)
 Button.Size = UDim2.new(0, 316, 0, 153)
 Button.Image = "rbxassetid://89160442840860"
 
@@ -304,7 +316,7 @@ Close.Parent = Frame
 Close.BackgroundColor3 = Color3.fromRGB(255, 0, 0)
 Close.BorderColor3 = Color3.fromRGB(0, 0, 0)
 Close.BorderSizePixel = 0
-Close.Position = UDim2.new(0.307511747, 0, 0.975982547, 0)
+Close.Position = UDim2.new(0.0458096117, 0, 0.975982547, 0)
 Close.Size = UDim2.new(0, 295, 0, 58)
 Close.Font = Enum.Font.SourceSans
 Close.Text = "Close"
@@ -315,17 +327,117 @@ Close.TextWrapped = true
 
 UICorner_16.Parent = Close
 
+ButtonFly.Name = "ButtonFly"
+ButtonFly.Parent = Frame
+ButtonFly.BackgroundColor3 = Color3.fromRGB(211, 214, 255)
+ButtonFly.BorderColor3 = Color3.fromRGB(0, 0, 0)
+ButtonFly.BorderSizePixel = 0
+ButtonFly.Position = UDim2.new(0.763829768, 0, 0.194499016, 0)
+ButtonFly.Size = UDim2.new(0, 102, 0, 57)
+ButtonFly.Font = Enum.Font.SourceSans
+ButtonFly.Text = "Fly ONLY PC"
+ButtonFly.TextColor3 = Color3.fromRGB(0, 0, 0)
+ButtonFly.TextScaled = true
+ButtonFly.TextSize = 14.000
+ButtonFly.TextWrapped = true
+
+UICorner_17.Parent = ButtonFly
+
+Update.Name = "Update"
+Update.Parent = Frame
+Update.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+Update.BorderColor3 = Color3.fromRGB(0, 0, 0)
+Update.BorderSizePixel = 0
+Update.Position = UDim2.new(0.746808529, 0, 0.322200388, 0)
+Update.Size = UDim2.new(0, 109, 0, 332)
+Update.Font = Enum.Font.SourceSans
+Update.Text = "Make Fly 09-04-2026"
+Update.TextColor3 = Color3.fromRGB(0, 0, 0)
+Update.TextSize = 14.000
+Update.TextWrapped = true
+Update.TextXAlignment = Enum.TextXAlignment.Left
+Update.TextYAlignment = Enum.TextYAlignment.Top
+
+FrameFLY.Name = "FrameFLY"
+FrameFLY.Parent = WalkSpeedGUI
+FrameFLY.BackgroundColor3 = Color3.fromRGB(227, 255, 215)
+FrameFLY.BorderColor3 = Color3.fromRGB(0, 0, 0)
+FrameFLY.BorderSizePixel = 0
+FrameFLY.Position = UDim2.new(0.247256249, 0, 0.147540987, 0)
+FrameFLY.Size = UDim2.new(0, 188, 0, 288)
+FrameFLY.Visible = false
+
+FLYOnlyPC.Name = "FLY Only PC"
+FLYOnlyPC.Parent = FrameFLY
+FLYOnlyPC.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+FLYOnlyPC.BorderColor3 = Color3.fromRGB(0, 0, 0)
+FLYOnlyPC.BorderSizePixel = 0
+FLYOnlyPC.Position = UDim2.new(0.0309841074, 0, 0.169679478, 0)
+FLYOnlyPC.Size = UDim2.new(0, 160, 0, 50)
+FLYOnlyPC.Font = Enum.Font.SourceSans
+FLYOnlyPC.Text = "FLY only PC"
+FLYOnlyPC.TextColor3 = Color3.fromRGB(0, 0, 0)
+FLYOnlyPC.TextScaled = true
+FLYOnlyPC.TextSize = 14.000
+FLYOnlyPC.TextWrapped = true
+
+FlyButton.Name = "FlyButton"
+FlyButton.Parent = FrameFLY
+FlyButton.BackgroundColor3 = Color3.fromRGB(253, 255, 144)
+FlyButton.BorderColor3 = Color3.fromRGB(0, 0, 0)
+FlyButton.BorderSizePixel = 0
+FlyButton.Position = UDim2.new(0.124964908, 0, 0.758881688, 0)
+FlyButton.Size = UDim2.new(0, 120, 0, 50)
+FlyButton.Font = Enum.Font.SourceSans
+FlyButton.Text = "Fly"
+FlyButton.TextColor3 = Color3.fromRGB(0, 0, 0)
+FlyButton.TextSize = 14.000
+
+UICorner_18.Parent = FlyButton
+
+TextLabel_5.Parent = FrameFLY
+TextLabel_5.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+TextLabel_5.BorderColor3 = Color3.fromRGB(0, 0, 0)
+TextLabel_5.BorderSizePixel = 0
+TextLabel_5.Position = UDim2.new(0.0360372029, 0, 0.34468323, 0)
+TextLabel_5.Size = UDim2.new(0, 174, 0, 111)
+TextLabel_5.Font = Enum.Font.SourceSans
+TextLabel_5.Text = "You Move W, S, A, D . Keyboard Down LIFTshift and UP Space"
+TextLabel_5.TextColor3 = Color3.fromRGB(0, 0, 0)
+TextLabel_5.TextScaled = true
+TextLabel_5.TextSize = 14.000
+TextLabel_5.TextWrapped = true
+
+UICorner_19.Parent = FrameFLY
+
+ButtonME.Name = "ButtonME"
+ButtonME.Parent = FrameFLY
+ButtonME.BackgroundColor3 = Color3.fromRGB(255, 11, 11)
+ButtonME.BorderColor3 = Color3.fromRGB(0, 0, 0)
+ButtonME.BorderSizePixel = 0
+ButtonME.Size = UDim2.new(0, 77, 0, 36)
+ButtonME.Font = Enum.Font.SourceSans
+ButtonME.Text = "Close"
+ButtonME.TextColor3 = Color3.fromRGB(0, 0, 0)
+ButtonME.TextSize = 14.000
+
+UICorner_20.Parent = ButtonME
+
 -- Scripts:
 
-local function SWZX_fake_script() -- MFrame.MainScript 
+local function LNII_fake_script() -- MFrame.MainScript 
 	local script = Instance.new('LocalScript', MFrame)
 
 	local button = script.Parent.ApplyButton
 	local textBox = button.Parent:WaitForChild("SpeedBox")
-	local player = game.Players.LocalPlayer
 	local button2 = script.Parent.Normal
 	local player = game.Players.LocalPlayer
 	local gui = script.Parent.Parent.MFrame
+	local runService = game:GetService("RunService")
+	local player = game:GetService("Players").LocalPlayer
+	local tweenService = game:GetService("TweenService")
+	local UIS = game:GetService("UserInputService")
+	
 	
 	-- Create UIScale
 	local scale = Instance.new("UIScale")
@@ -383,8 +495,8 @@ local function SWZX_fake_script() -- MFrame.MainScript
 	end)
 	
 end
-coroutine.wrap(SWZX_fake_script)()
-local function BYGMO_fake_script() -- MFrame.Drag 
+coroutine.wrap(LNII_fake_script)()
+local function BOAD_fake_script() -- MFrame.Drag 
 	local script = Instance.new('LocalScript', MFrame)
 
 	local UserInputService = game:GetService("UserInputService")
@@ -427,8 +539,8 @@ local function BYGMO_fake_script() -- MFrame.Drag
 		end
 	end)
 end
-coroutine.wrap(BYGMO_fake_script)()
-local function RCRRZ_fake_script() -- MFrame2.MainScript2 
+coroutine.wrap(BOAD_fake_script)()
+local function ZOYJ_fake_script() -- MFrame2.MainScript2 
 	local script = Instance.new('LocalScript', MFrame2)
 
 	local player = game.Players.LocalPlayer
@@ -440,6 +552,9 @@ local function RCRRZ_fake_script() -- MFrame2.MainScript2
 	local ButtonN = script.Parent:WaitForChild("NormalW")
 	local player = game.Players.LocalPlayer
 	local gui = script.Parent.Parent.MFrame2
+	local runService = game:GetService("RunService")
+	local player = game:GetService("Players").LocalPlayer
+	local tweenService = game:GetService("TweenService")
 	
 	-- Create UIScale
 	local scale = Instance.new("UIScale")
@@ -522,8 +637,8 @@ local function RCRRZ_fake_script() -- MFrame2.MainScript2
 		humanoid.WalkSpeed = 16
 	end)
 end
-coroutine.wrap(RCRRZ_fake_script)()
-local function UBSCYQL_fake_script() -- MFrame2.Drag 
+coroutine.wrap(ZOYJ_fake_script)()
+local function PFEWOXN_fake_script() -- MFrame2.Drag 
 	local script = Instance.new('LocalScript', MFrame2)
 
 	local UserInputService = game:GetService("UserInputService")
@@ -566,13 +681,14 @@ local function UBSCYQL_fake_script() -- MFrame2.Drag
 		end
 	end)
 end
-coroutine.wrap(UBSCYQL_fake_script)()
-local function JINR_fake_script() -- Frame.LocalScript 
+coroutine.wrap(PFEWOXN_fake_script)()
+local function LBDYBS_fake_script() -- Frame.LocalScript 
 	local script = Instance.new('LocalScript', Frame)
 
 	local button1 = script.Parent:WaitForChild("Number")
 	local button2 = script.Parent:WaitForChild("Button")
 	local button3 = script.Parent:WaitForChild("Close")
+	local button4 = script.Parent:WaitForChild("ButtonFly")
 	local player = game.Players.LocalPlayer
 	local gui = script.Parent.Parent.Frame
 	
@@ -588,6 +704,11 @@ local function JINR_fake_script() -- Frame.LocalScript
 	end)
 	
 	button3.MouseButton1Click:Connect(function()
+		script.Parent.Parent.Frame.Visible = false
+	end)
+	
+	button4.MouseButton1Click:Connect(function()
+		script.Parent.Parent.FrameFLY.Visible = true
 		script.Parent.Parent.Frame.Visible = false
 	end)
 	
@@ -625,8 +746,8 @@ local function JINR_fake_script() -- Frame.LocalScript
 	end)
 	
 end
-coroutine.wrap(JINR_fake_script)()
-local function WRCSHS_fake_script() -- Frame.Drag 
+coroutine.wrap(LBDYBS_fake_script)()
+local function ATEYPJ_fake_script() -- Frame.Drag 
 	local script = Instance.new('LocalScript', Frame)
 
 	local UserInputService = game:GetService("UserInputService")
@@ -669,4 +790,130 @@ local function WRCSHS_fake_script() -- Frame.Drag
 		end
 	end)
 end
-coroutine.wrap(WRCSHS_fake_script)()
+coroutine.wrap(ATEYPJ_fake_script)()
+local function WYVBDP_fake_script() -- FrameFLY.LocalScript 
+	local script = Instance.new('LocalScript', FrameFLY)
+
+	local button = script.Parent.FlyButton
+	local player = game.Players.LocalPlayer
+	local Close = script.Parent.ButtonME
+	
+	local UserInputService = game:GetService("UserInputService")
+	local RunService = game:GetService("RunService")
+	
+	local flying = false
+	local speed = 50
+	local direction = Vector3.new(0,0,0)
+	
+	local character
+	local root
+	
+	local function setupCharacter()
+		character = player.Character or player.CharacterAdded:Wait()
+		root = character:WaitForChild("HumanoidRootPart")
+	end
+	
+	setupCharacter()
+	player.CharacterAdded:Connect(setupCharacter)
+	
+	-- Toggle fly when button clicked
+	button.MouseButton1Click:Connect(function()
+		flying = not flying
+		button.Text = flying and "Flying ON" or "Fly"
+	end)
+	
+	-- Movement input
+	UserInputService.InputBegan:Connect(function(input, gameProcessed)
+		if gameProcessed then return end
+	
+		if input.KeyCode == Enum.KeyCode.W then
+			direction += Vector3.new(0,0,-1)
+		elseif input.KeyCode == Enum.KeyCode.S then
+			direction += Vector3.new(0,0,1)
+		elseif input.KeyCode == Enum.KeyCode.A then
+			direction += Vector3.new(-1,0,0)
+		elseif input.KeyCode == Enum.KeyCode.D then
+			direction += Vector3.new(1,0,0)
+		elseif input.KeyCode == Enum.KeyCode.Space then
+			direction += Vector3.new(0,1,0)
+		elseif input.KeyCode == Enum.KeyCode.LeftShift then
+			direction += Vector3.new(0,-1,0)
+		end
+	end)
+	
+	UserInputService.InputEnded:Connect(function(input)
+		if input.KeyCode == Enum.KeyCode.W then
+			direction -= Vector3.new(0,0,-1)
+		elseif input.KeyCode == Enum.KeyCode.S then
+			direction -= Vector3.new(0,0,1)
+		elseif input.KeyCode == Enum.KeyCode.A then
+			direction -= Vector3.new(-1,0,0)
+		elseif input.KeyCode == Enum.KeyCode.D then
+			direction -= Vector3.new(1,0,0)
+		elseif input.KeyCode == Enum.KeyCode.Space then
+			direction += Vector3.new(0,1,0)
+		elseif input.KeyCode == Enum.KeyCode.LeftShift then
+			direction += Vector3.new(0,-1,0)
+		end
+	end)
+	
+	-- Fly system
+	RunService.RenderStepped:Connect(function()
+		if flying and root then
+			local cam = workspace.CurrentCamera
+			local moveDir = cam.CFrame:VectorToWorldSpace(direction)
+	
+			root.Velocity = moveDir * speed
+		end
+	end)
+	
+	Close.MouseButton1Click:Connect(function()
+		script.Parent.Visible = false
+	end)
+	
+end
+coroutine.wrap(WYVBDP_fake_script)()
+local function JBQVPA_fake_script() -- FrameFLY.Drag 
+	local script = Instance.new('LocalScript', FrameFLY)
+
+	local UserInputService = game:GetService("UserInputService")
+	
+	local gui = script.Parent
+	
+	local dragging
+	local dragInput
+	local dragStart
+	local startPos
+	
+	local function update(input)
+		local delta = input.Position - dragStart
+		gui.Position = UDim2.new(startPos.X.Scale, startPos.X.Offset + delta.X, startPos.Y.Scale, startPos.Y.Offset + delta.Y)
+	end
+	
+	gui.InputBegan:Connect(function(input)
+		if input.UserInputType == Enum.UserInputType.MouseButton1 or input.UserInputType == Enum.UserInputType.Touch then
+			dragging = true
+			dragStart = input.Position
+			startPos = gui.Position
+			
+			input.Changed:Connect(function()
+				if input.UserInputState == Enum.UserInputState.End then
+					dragging = false
+				end
+			end)
+		end
+	end)
+	
+	gui.InputChanged:Connect(function(input)
+		if input.UserInputType == Enum.UserInputType.MouseMovement or input.UserInputType == Enum.UserInputType.Touch then
+			dragInput = input
+		end
+	end)
+	
+	UserInputService.InputChanged:Connect(function(input)
+		if input == dragInput and dragging then
+			update(input)
+		end
+	end)
+end
+coroutine.wrap(JBQVPA_fake_script)()
