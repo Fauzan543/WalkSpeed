@@ -1,440 +1,543 @@
---Make Fly Only PC Working
--- Version: 3.1
+--FIX Error 10 April 2026
+--V3.11 Fix Error on gui
 
--- Instances:
+local G2L = {};
 
-local WalkSpeedGUI = Instance.new("ScreenGui")
-local MFrame = Instance.new("Frame")
-local SpeedBox = Instance.new("TextBox")
-local UICorner = Instance.new("UICorner")
-local ApplyButton = Instance.new("TextButton")
-local UICorner_2 = Instance.new("UICorner")
-local UICorner_3 = Instance.new("UICorner")
-local Normal = Instance.new("TextButton")
-local UICorner_4 = Instance.new("UICorner")
-local TextLabel = Instance.new("TextLabel")
-local TextLabel_2 = Instance.new("TextLabel")
-local MFrame2 = Instance.new("Frame")
-local Button1 = Instance.new("TextButton")
-local UICorner_5 = Instance.new("UICorner")
-local UICorner_6 = Instance.new("UICorner")
-local Button3 = Instance.new("TextButton")
-local UICorner_7 = Instance.new("UICorner")
-local Button4 = Instance.new("TextButton")
-local UICorner_8 = Instance.new("UICorner")
-local Button5 = Instance.new("TextButton")
-local UICorner_9 = Instance.new("UICorner")
-local TextLabel_3 = Instance.new("TextLabel")
-local UICorner_10 = Instance.new("UICorner")
-local Button2 = Instance.new("TextButton")
-local UICorner_11 = Instance.new("UICorner")
-local NormalW = Instance.new("TextButton")
-local UICorner_12 = Instance.new("UICorner")
-local Frame = Instance.new("Frame")
-local UICorner_13 = Instance.new("UICorner")
-local Number = Instance.new("ImageButton")
-local UICorner_14 = Instance.new("UICorner")
-local Button = Instance.new("ImageButton")
-local UICorner_15 = Instance.new("UICorner")
-local TextLabel_4 = Instance.new("TextLabel")
-local Close = Instance.new("TextButton")
-local UICorner_16 = Instance.new("UICorner")
-local ButtonFly = Instance.new("TextButton")
-local UICorner_17 = Instance.new("UICorner")
-local Update = Instance.new("TextLabel")
-local FrameFLY = Instance.new("Frame")
-local FLYOnlyPC = Instance.new("TextLabel")
-local FlyButton = Instance.new("TextButton")
-local UICorner_18 = Instance.new("UICorner")
-local TextLabel_5 = Instance.new("TextLabel")
-local UICorner_19 = Instance.new("UICorner")
-local ButtonME = Instance.new("TextButton")
-local UICorner_20 = Instance.new("UICorner")
+-- StarterGui.WalkSpeed GUI
+G2L["1"] = Instance.new("ScreenGui", game:GetService("Players").LocalPlayer:WaitForChild("PlayerGui"));
+G2L["1"]["Name"] = [[WalkSpeed GUI]];
+G2L["1"]["ZIndexBehavior"] = Enum.ZIndexBehavior.Sibling;
 
---Properties:
 
-WalkSpeedGUI.Name = "WalkSpeed GUI"
-WalkSpeedGUI.Parent = game.Players.LocalPlayer:WaitForChild("PlayerGui")
-WalkSpeedGUI.ZIndexBehavior = Enum.ZIndexBehavior.Sibling
+-- StarterGui.WalkSpeed GUI.MFrame
+G2L["2"] = Instance.new("Frame", G2L["1"]);
+G2L["2"]["Visible"] = false;
+G2L["2"]["BorderSizePixel"] = 0;
+G2L["2"]["BackgroundColor3"] = Color3.fromRGB(127, 157, 255);
+G2L["2"]["Size"] = UDim2.new(0, 279, 0, 357);
+G2L["2"]["Position"] = UDim2.new(0, 385, 0, 64);
+G2L["2"]["BorderColor3"] = Color3.fromRGB(0, 0, 0);
+G2L["2"]["Name"] = [[MFrame]];
 
-MFrame.Name = "MFrame"
-MFrame.Parent = WalkSpeedGUI
-MFrame.BackgroundColor3 = Color3.fromRGB(126, 156, 255)
-MFrame.BorderColor3 = Color3.fromRGB(0, 0, 0)
-MFrame.BorderSizePixel = 0
-MFrame.Position = UDim2.new(0, 385, 0, 64)
-MFrame.Size = UDim2.new(0, 279, 0, 357)
-MFrame.Visible = false
 
-SpeedBox.Name = "SpeedBox"
-SpeedBox.Parent = MFrame
-SpeedBox.BackgroundColor3 = Color3.fromRGB(239, 243, 255)
-SpeedBox.BorderColor3 = Color3.fromRGB(0, 0, 0)
-SpeedBox.BorderSizePixel = 0
-SpeedBox.Position = UDim2.new(0.0507965647, 0, 0.263397396, 0)
-SpeedBox.Size = UDim2.new(0, 248, 0, 62)
-SpeedBox.Font = Enum.Font.SourceSans
-SpeedBox.Text = "16 or more Speed "
-SpeedBox.TextColor3 = Color3.fromRGB(0, 0, 0)
-SpeedBox.TextScaled = true
-SpeedBox.TextSize = 14.000
-SpeedBox.TextWrapped = true
+-- StarterGui.WalkSpeed GUI.MFrame.MainScript
+G2L["3"] = Instance.new("LocalScript", G2L["2"]);
+G2L["3"]["Name"] = [[MainScript]];
 
-UICorner.Parent = SpeedBox
 
-ApplyButton.Name = "ApplyButton"
-ApplyButton.Parent = MFrame
-ApplyButton.BackgroundColor3 = Color3.fromRGB(213, 255, 218)
-ApplyButton.BorderColor3 = Color3.fromRGB(0, 0, 0)
-ApplyButton.BorderSizePixel = 0
-ApplyButton.Position = UDim2.new(0.0651336983, 0, 0.437491626, 0)
-ApplyButton.Size = UDim2.new(0, 241, 0, 51)
-ApplyButton.Font = Enum.Font.SourceSans
-ApplyButton.Text = "Submit ✅"
-ApplyButton.TextColor3 = Color3.fromRGB(0, 0, 0)
-ApplyButton.TextScaled = true
-ApplyButton.TextSize = 14.000
-ApplyButton.TextWrapped = true
+-- StarterGui.WalkSpeed GUI.MFrame.Drag
+G2L["4"] = Instance.new("LocalScript", G2L["2"]);
+G2L["4"]["Name"] = [[Drag]];
 
-UICorner_2.Parent = ApplyButton
 
-UICorner_3.Parent = MFrame
+-- StarterGui.WalkSpeed GUI.MFrame.SpeedBox
+G2L["5"] = Instance.new("TextBox", G2L["2"]);
+G2L["5"]["Name"] = [[SpeedBox]];
+G2L["5"]["BorderSizePixel"] = 0;
+G2L["5"]["TextWrapped"] = true;
+G2L["5"]["TextSize"] = 14;
+G2L["5"]["TextColor3"] = Color3.fromRGB(0, 0, 0);
+G2L["5"]["TextScaled"] = true;
+G2L["5"]["BackgroundColor3"] = Color3.fromRGB(240, 244, 255);
+G2L["5"]["FontFace"] = Font.new([[rbxasset://fonts/families/SourceSansPro.json]], Enum.FontWeight.Regular, Enum.FontStyle.Normal);
+G2L["5"]["Size"] = UDim2.new(0, 248, 0, 62);
+G2L["5"]["Position"] = UDim2.new(0.0508, 0, 0.2634, 0);
+G2L["5"]["BorderColor3"] = Color3.fromRGB(0, 0, 0);
+G2L["5"]["Text"] = [[16 or more Speed ]];
 
-Normal.Name = "Normal"
-Normal.Parent = MFrame
-Normal.BackgroundColor3 = Color3.fromRGB(233, 251, 255)
-Normal.BorderColor3 = Color3.fromRGB(0, 0, 0)
-Normal.BorderSizePixel = 0
-Normal.Position = UDim2.new(0.0645164549, 0, 0.60224092, 0)
-Normal.Size = UDim2.new(0, 241, 0, 67)
-Normal.Font = Enum.Font.SourceSans
-Normal.Text = "Normal Walk"
-Normal.TextColor3 = Color3.fromRGB(0, 0, 0)
-Normal.TextScaled = true
-Normal.TextSize = 14.000
-Normal.TextWrapped = true
 
-UICorner_4.Parent = Normal
+-- StarterGui.WalkSpeed GUI.MFrame.SpeedBox.UICorner
+G2L["6"] = Instance.new("UICorner", G2L["5"]);
 
-TextLabel.Parent = MFrame
-TextLabel.BackgroundColor3 = Color3.fromRGB(126, 156, 255)
-TextLabel.BorderColor3 = Color3.fromRGB(0, 0, 0)
-TextLabel.BorderSizePixel = 0
-TextLabel.Position = UDim2.new(0.0501792133, 0, 0.806722701, 0)
-TextLabel.Size = UDim2.new(0, 248, 0, 60)
-TextLabel.Font = Enum.Font.SourceSans
-TextLabel.Text = "Speed 16 or more. you try 81 speed."
-TextLabel.TextColor3 = Color3.fromRGB(0, 0, 0)
-TextLabel.TextScaled = true
-TextLabel.TextSize = 14.000
-TextLabel.TextWrapped = true
-TextLabel.TextXAlignment = Enum.TextXAlignment.Left
-TextLabel.TextYAlignment = Enum.TextYAlignment.Top
 
-TextLabel_2.Parent = MFrame
-TextLabel_2.BackgroundColor3 = Color3.fromRGB(126, 156, 255)
-TextLabel_2.BorderColor3 = Color3.fromRGB(0, 0, 0)
-TextLabel_2.BorderSizePixel = 0
-TextLabel_2.Position = UDim2.new(0.0250896066, 0, 0.100840338, 0)
-TextLabel_2.Size = UDim2.new(0, 272, 0, 50)
-TextLabel_2.Font = Enum.Font.SourceSans
-TextLabel_2.Text = "Walk Number"
-TextLabel_2.TextColor3 = Color3.fromRGB(0, 0, 0)
-TextLabel_2.TextScaled = true
-TextLabel_2.TextSize = 14.000
-TextLabel_2.TextWrapped = true
 
-MFrame2.Name = "MFrame2"
-MFrame2.Parent = WalkSpeedGUI
-MFrame2.BackgroundColor3 = Color3.fromRGB(229, 255, 255)
-MFrame2.BorderColor3 = Color3.fromRGB(0, 0, 0)
-MFrame2.BorderSizePixel = 0
-MFrame2.Position = UDim2.new(0, 370, 0, 26)
-MFrame2.Size = UDim2.new(0, 300, 0, 443)
-MFrame2.Visible = false
+-- StarterGui.WalkSpeed GUI.MFrame.ApplyButton
+G2L["7"] = Instance.new("TextButton", G2L["2"]);
+G2L["7"]["TextWrapped"] = true;
+G2L["7"]["BorderSizePixel"] = 0;
+G2L["7"]["TextSize"] = 14;
+G2L["7"]["TextScaled"] = true;
+G2L["7"]["TextColor3"] = Color3.fromRGB(0, 0, 0);
+G2L["7"]["BackgroundColor3"] = Color3.fromRGB(214, 255, 219);
+G2L["7"]["FontFace"] = Font.new([[rbxasset://fonts/families/SourceSansPro.json]], Enum.FontWeight.Regular, Enum.FontStyle.Normal);
+G2L["7"]["Size"] = UDim2.new(0, 241, 0, 51);
+G2L["7"]["BorderColor3"] = Color3.fromRGB(0, 0, 0);
+G2L["7"]["Text"] = [[Submit ✅]];
+G2L["7"]["Name"] = [[ApplyButton]];
+G2L["7"]["Position"] = UDim2.new(0.06513, 0, 0.43749, 0);
 
-Button1.Name = "Button1"
-Button1.Parent = MFrame2
-Button1.BackgroundColor3 = Color3.fromRGB(207, 246, 255)
-Button1.BorderColor3 = Color3.fromRGB(0, 0, 0)
-Button1.BorderSizePixel = 0
-Button1.Position = UDim2.new(0.0533333346, 0, 0.122340426, 0)
-Button1.Size = UDim2.new(0, 268, 0, 57)
-Button1.Font = Enum.Font.SourceSans
-Button1.Text = "Run"
-Button1.TextColor3 = Color3.fromRGB(0, 0, 0)
-Button1.TextScaled = true
-Button1.TextSize = 14.000
-Button1.TextWrapped = true
 
-UICorner_5.Parent = Button1
+-- StarterGui.WalkSpeed GUI.MFrame.ApplyButton.UICorner
+G2L["8"] = Instance.new("UICorner", G2L["7"]);
 
-UICorner_6.Parent = MFrame2
 
-Button3.Name = "Button3"
-Button3.Parent = MFrame2
-Button3.BackgroundColor3 = Color3.fromRGB(207, 246, 255)
-Button3.BorderColor3 = Color3.fromRGB(0, 0, 0)
-Button3.BorderSizePixel = 0
-Button3.Position = UDim2.new(0.0533333346, 0, 0.428502977, 0)
-Button3.Size = UDim2.new(0, 268, 0, 57)
-Button3.Font = Enum.Font.SourceSans
-Button3.Text = "Fast Run"
-Button3.TextColor3 = Color3.fromRGB(0, 0, 0)
-Button3.TextScaled = true
-Button3.TextSize = 14.000
-Button3.TextWrapped = true
 
-UICorner_7.Parent = Button3
+-- StarterGui.WalkSpeed GUI.MFrame.UICorner
+G2L["9"] = Instance.new("UICorner", G2L["2"]);
 
-Button4.Name = "Button4"
-Button4.Parent = MFrame2
-Button4.BackgroundColor3 = Color3.fromRGB(207, 246, 255)
-Button4.BorderColor3 = Color3.fromRGB(0, 0, 0)
-Button4.BorderSizePixel = 0
-Button4.Position = UDim2.new(0.0533333346, 0, 0.729821384, 0)
-Button4.Size = UDim2.new(0, 268, 0, 57)
-Button4.Font = Enum.Font.SourceSans
-Button4.Text = "Very fast Run"
-Button4.TextColor3 = Color3.fromRGB(0, 0, 0)
-Button4.TextScaled = true
-Button4.TextSize = 14.000
-Button4.TextWrapped = true
 
-UICorner_8.Parent = Button4
 
-Button5.Name = "Button5"
-Button5.Parent = MFrame2
-Button5.BackgroundColor3 = Color3.fromRGB(207, 246, 255)
-Button5.BorderColor3 = Color3.fromRGB(0, 0, 0)
-Button5.BorderSizePixel = 0
-Button5.Position = UDim2.new(0.0533333346, 0, 0.579162121, 0)
-Button5.Size = UDim2.new(0, 268, 0, 57)
-Button5.Font = Enum.Font.SourceSans
-Button5.Text = "Very Run"
-Button5.TextColor3 = Color3.fromRGB(0, 0, 0)
-Button5.TextScaled = true
-Button5.TextSize = 14.000
-Button5.TextWrapped = true
+-- StarterGui.WalkSpeed GUI.MFrame.Normal
+G2L["a"] = Instance.new("TextButton", G2L["2"]);
+G2L["a"]["TextWrapped"] = true;
+G2L["a"]["BorderSizePixel"] = 0;
+G2L["a"]["TextSize"] = 14;
+G2L["a"]["TextScaled"] = true;
+G2L["a"]["TextColor3"] = Color3.fromRGB(0, 0, 0);
+G2L["a"]["BackgroundColor3"] = Color3.fromRGB(234, 252, 255);
+G2L["a"]["FontFace"] = Font.new([[rbxasset://fonts/families/SourceSansPro.json]], Enum.FontWeight.Regular, Enum.FontStyle.Normal);
+G2L["a"]["Size"] = UDim2.new(0, 241, 0, 67);
+G2L["a"]["BorderColor3"] = Color3.fromRGB(0, 0, 0);
+G2L["a"]["Text"] = [[Normal Walk]];
+G2L["a"]["Name"] = [[Normal]];
+G2L["a"]["Position"] = UDim2.new(0.06452, 0, 0.60224, 0);
 
-UICorner_9.Parent = Button5
 
-TextLabel_3.Parent = MFrame2
-TextLabel_3.BackgroundColor3 = Color3.fromRGB(229, 255, 255)
-TextLabel_3.BorderColor3 = Color3.fromRGB(0, 0, 0)
-TextLabel_3.BorderSizePixel = 0
-TextLabel_3.Position = UDim2.new(0, 0, -0.0395136066, 0)
-TextLabel_3.Size = UDim2.new(0, 300, 0, 50)
-TextLabel_3.Font = Enum.Font.SourceSans
-TextLabel_3.Text = "Walk Button"
-TextLabel_3.TextColor3 = Color3.fromRGB(0, 0, 0)
-TextLabel_3.TextScaled = true
-TextLabel_3.TextSize = 14.000
-TextLabel_3.TextWrapped = true
+-- StarterGui.WalkSpeed GUI.MFrame.Normal.UICorner
+G2L["b"] = Instance.new("UICorner", G2L["a"]);
 
-UICorner_10.Parent = TextLabel_3
 
-Button2.Name = "Button2"
-Button2.Parent = MFrame2
-Button2.BackgroundColor3 = Color3.fromRGB(207, 246, 255)
-Button2.BorderColor3 = Color3.fromRGB(0, 0, 0)
-Button2.BorderSizePixel = 0
-Button2.ClipsDescendants = true
-Button2.Position = UDim2.new(0.0533333346, 0, 0.275421679, 0)
-Button2.Size = UDim2.new(0, 268, 0, 57)
-Button2.Font = Enum.Font.SourceSans
-Button2.Text = "Run2"
-Button2.TextColor3 = Color3.fromRGB(0, 0, 0)
-Button2.TextScaled = true
-Button2.TextSize = 14.000
-Button2.TextWrapped = true
 
-UICorner_11.Parent = Button2
+-- StarterGui.WalkSpeed GUI.MFrame.TextLabel
+G2L["c"] = Instance.new("TextLabel", G2L["2"]);
+G2L["c"]["TextWrapped"] = true;
+G2L["c"]["BorderSizePixel"] = 0;
+G2L["c"]["TextSize"] = 14;
+G2L["c"]["TextXAlignment"] = Enum.TextXAlignment.Left;
+G2L["c"]["TextYAlignment"] = Enum.TextYAlignment.Top;
+G2L["c"]["TextScaled"] = true;
+G2L["c"]["BackgroundColor3"] = Color3.fromRGB(127, 157, 255);
+G2L["c"]["FontFace"] = Font.new([[rbxasset://fonts/families/SourceSansPro.json]], Enum.FontWeight.Regular, Enum.FontStyle.Normal);
+G2L["c"]["TextColor3"] = Color3.fromRGB(0, 0, 0);
+G2L["c"]["Size"] = UDim2.new(0, 248, 0, 60);
+G2L["c"]["BorderColor3"] = Color3.fromRGB(0, 0, 0);
+G2L["c"]["Text"] = [[Speed 16 or more. you try 81 speed.]];
+G2L["c"]["Position"] = UDim2.new(0.05018, 0, 0.80672, 0);
 
-NormalW.Name = "NormalW"
-NormalW.Parent = MFrame2
-NormalW.BackgroundColor3 = Color3.fromRGB(221, 221, 221)
-NormalW.BorderColor3 = Color3.fromRGB(0, 0, 0)
-NormalW.BorderSizePixel = 0
-NormalW.Position = UDim2.new(0.0566666685, 0, 0.873523176, 0)
-NormalW.Size = UDim2.new(0, 267, 0, 50)
-NormalW.Font = Enum.Font.SourceSans
-NormalW.Text = "Normal Walk"
-NormalW.TextColor3 = Color3.fromRGB(0, 0, 0)
-NormalW.TextScaled = true
-NormalW.TextSize = 14.000
-NormalW.TextWrapped = true
 
-UICorner_12.Parent = NormalW
+-- StarterGui.WalkSpeed GUI.MFrame.TextLabel
+G2L["d"] = Instance.new("TextLabel", G2L["2"]);
+G2L["d"]["TextWrapped"] = true;
+G2L["d"]["BorderSizePixel"] = 0;
+G2L["d"]["TextSize"] = 14;
+G2L["d"]["TextScaled"] = true;
+G2L["d"]["BackgroundColor3"] = Color3.fromRGB(127, 157, 255);
+G2L["d"]["FontFace"] = Font.new([[rbxasset://fonts/families/SourceSansPro.json]], Enum.FontWeight.Regular, Enum.FontStyle.Normal);
+G2L["d"]["TextColor3"] = Color3.fromRGB(0, 0, 0);
+G2L["d"]["Size"] = UDim2.new(0, 272, 0, 50);
+G2L["d"]["BorderColor3"] = Color3.fromRGB(0, 0, 0);
+G2L["d"]["Text"] = [[Walk Number]];
+G2L["d"]["Position"] = UDim2.new(0.02509, 0, 0.10084, 0);
 
-Frame.Parent = WalkSpeedGUI
-Frame.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
-Frame.BorderColor3 = Color3.fromRGB(0, 0, 0)
-Frame.BorderSizePixel = 0
-Frame.Position = UDim2.new(0, 291, 0, 16)
-Frame.Size = UDim2.new(0, 470, 0, 509)
 
-UICorner_13.Parent = Frame
+-- StarterGui.WalkSpeed GUI.MFrame2
+G2L["e"] = Instance.new("Frame", G2L["1"]);
+G2L["e"]["Visible"] = false;
+G2L["e"]["BorderSizePixel"] = 0;
+G2L["e"]["BackgroundColor3"] = Color3.fromRGB(230, 255, 255);
+G2L["e"]["Size"] = UDim2.new(0, 300, 0, 443);
+G2L["e"]["Position"] = UDim2.new(0, 370, 0, 26);
+G2L["e"]["BorderColor3"] = Color3.fromRGB(0, 0, 0);
+G2L["e"]["Name"] = [[MFrame2]];
 
-Number.Name = "Number"
-Number.Parent = Frame
-Number.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
-Number.BorderColor3 = Color3.fromRGB(0, 0, 0)
-Number.BorderSizePixel = 0
-Number.Position = UDim2.new(0.0599032156, 0, 0.149700955, 0)
-Number.Size = UDim2.new(0, 316, 0, 177)
-Number.Image = "rbxassetid://74391208102778"
 
-UICorner_14.Parent = Number
+-- StarterGui.WalkSpeed GUI.MFrame2.MainScript2
+G2L["f"] = Instance.new("LocalScript", G2L["e"]);
+G2L["f"]["Name"] = [[MainScript2]];
 
-Button.Name = "Button"
-Button.Parent = Frame
-Button.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
-Button.BorderColor3 = Color3.fromRGB(0, 0, 0)
-Button.BorderSizePixel = 0
-Button.Position = UDim2.new(0.0599032156, 0, 0.515217841, 0)
-Button.Size = UDim2.new(0, 316, 0, 153)
-Button.Image = "rbxassetid://89160442840860"
 
-UICorner_15.Parent = Button
+-- StarterGui.WalkSpeed GUI.MFrame2.Drag
+G2L["10"] = Instance.new("LocalScript", G2L["e"]);
+G2L["10"]["Name"] = [[Drag]];
 
-TextLabel_4.Parent = Frame
-TextLabel_4.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
-TextLabel_4.BorderColor3 = Color3.fromRGB(0, 0, 0)
-TextLabel_4.BorderSizePixel = 0
-TextLabel_4.Position = UDim2.new(0.0469483584, 0, 0.0436681211, 0)
-TextLabel_4.Size = UDim2.new(0, 387, 0, 50)
-TextLabel_4.Font = Enum.Font.SourceSans
-TextLabel_4.Text = "Welcome to WalkSpeed GUI V3"
-TextLabel_4.TextColor3 = Color3.fromRGB(0, 0, 0)
-TextLabel_4.TextScaled = true
-TextLabel_4.TextSize = 14.000
-TextLabel_4.TextWrapped = true
 
-Close.Name = "Close"
-Close.Parent = Frame
-Close.BackgroundColor3 = Color3.fromRGB(255, 0, 0)
-Close.BorderColor3 = Color3.fromRGB(0, 0, 0)
-Close.BorderSizePixel = 0
-Close.Position = UDim2.new(0.0458096117, 0, 0.975982547, 0)
-Close.Size = UDim2.new(0, 295, 0, 58)
-Close.Font = Enum.Font.SourceSans
-Close.Text = "Close"
-Close.TextColor3 = Color3.fromRGB(0, 0, 0)
-Close.TextScaled = true
-Close.TextSize = 14.000
-Close.TextWrapped = true
+-- StarterGui.WalkSpeed GUI.MFrame2.Button1
+G2L["11"] = Instance.new("TextButton", G2L["e"]);
+G2L["11"]["TextWrapped"] = true;
+G2L["11"]["BorderSizePixel"] = 0;
+G2L["11"]["TextSize"] = 14;
+G2L["11"]["TextScaled"] = true;
+G2L["11"]["TextColor3"] = Color3.fromRGB(0, 0, 0);
+G2L["11"]["BackgroundColor3"] = Color3.fromRGB(208, 247, 255);
+G2L["11"]["FontFace"] = Font.new([[rbxasset://fonts/families/SourceSansPro.json]], Enum.FontWeight.Regular, Enum.FontStyle.Normal);
+G2L["11"]["Size"] = UDim2.new(0, 268, 0, 57);
+G2L["11"]["BorderColor3"] = Color3.fromRGB(0, 0, 0);
+G2L["11"]["Text"] = [[Run]];
+G2L["11"]["Name"] = [[Button1]];
+G2L["11"]["Position"] = UDim2.new(0.05333, 0, 0.12234, 0);
 
-UICorner_16.Parent = Close
 
-ButtonFly.Name = "ButtonFly"
-ButtonFly.Parent = Frame
-ButtonFly.BackgroundColor3 = Color3.fromRGB(211, 214, 255)
-ButtonFly.BorderColor3 = Color3.fromRGB(0, 0, 0)
-ButtonFly.BorderSizePixel = 0
-ButtonFly.Position = UDim2.new(0.763829768, 0, 0.194499016, 0)
-ButtonFly.Size = UDim2.new(0, 102, 0, 57)
-ButtonFly.Font = Enum.Font.SourceSans
-ButtonFly.Text = "Fly ONLY PC"
-ButtonFly.TextColor3 = Color3.fromRGB(0, 0, 0)
-ButtonFly.TextScaled = true
-ButtonFly.TextSize = 14.000
-ButtonFly.TextWrapped = true
+-- StarterGui.WalkSpeed GUI.MFrame2.Button1.UICorner
+G2L["12"] = Instance.new("UICorner", G2L["11"]);
 
-UICorner_17.Parent = ButtonFly
 
-Update.Name = "Update"
-Update.Parent = Frame
-Update.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
-Update.BorderColor3 = Color3.fromRGB(0, 0, 0)
-Update.BorderSizePixel = 0
-Update.Position = UDim2.new(0.746808529, 0, 0.322200388, 0)
-Update.Size = UDim2.new(0, 109, 0, 332)
-Update.Font = Enum.Font.SourceSans
-Update.Text = "Make Fly 09-04-2026"
-Update.TextColor3 = Color3.fromRGB(0, 0, 0)
-Update.TextSize = 14.000
-Update.TextWrapped = true
-Update.TextXAlignment = Enum.TextXAlignment.Left
-Update.TextYAlignment = Enum.TextYAlignment.Top
 
-FrameFLY.Name = "FrameFLY"
-FrameFLY.Parent = WalkSpeedGUI
-FrameFLY.BackgroundColor3 = Color3.fromRGB(227, 255, 215)
-FrameFLY.BorderColor3 = Color3.fromRGB(0, 0, 0)
-FrameFLY.BorderSizePixel = 0
-FrameFLY.Position = UDim2.new(0.247256249, 0, 0.147540987, 0)
-FrameFLY.Size = UDim2.new(0, 188, 0, 288)
-FrameFLY.Visible = false
+-- StarterGui.WalkSpeed GUI.MFrame2.UICorner
+G2L["13"] = Instance.new("UICorner", G2L["e"]);
 
-FLYOnlyPC.Name = "FLY Only PC"
-FLYOnlyPC.Parent = FrameFLY
-FLYOnlyPC.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
-FLYOnlyPC.BorderColor3 = Color3.fromRGB(0, 0, 0)
-FLYOnlyPC.BorderSizePixel = 0
-FLYOnlyPC.Position = UDim2.new(0.0309841074, 0, 0.169679478, 0)
-FLYOnlyPC.Size = UDim2.new(0, 160, 0, 50)
-FLYOnlyPC.Font = Enum.Font.SourceSans
-FLYOnlyPC.Text = "FLY only PC"
-FLYOnlyPC.TextColor3 = Color3.fromRGB(0, 0, 0)
-FLYOnlyPC.TextScaled = true
-FLYOnlyPC.TextSize = 14.000
-FLYOnlyPC.TextWrapped = true
 
-FlyButton.Name = "FlyButton"
-FlyButton.Parent = FrameFLY
-FlyButton.BackgroundColor3 = Color3.fromRGB(253, 255, 144)
-FlyButton.BorderColor3 = Color3.fromRGB(0, 0, 0)
-FlyButton.BorderSizePixel = 0
-FlyButton.Position = UDim2.new(0.124964908, 0, 0.758881688, 0)
-FlyButton.Size = UDim2.new(0, 120, 0, 50)
-FlyButton.Font = Enum.Font.SourceSans
-FlyButton.Text = "Fly"
-FlyButton.TextColor3 = Color3.fromRGB(0, 0, 0)
-FlyButton.TextSize = 14.000
 
-UICorner_18.Parent = FlyButton
+-- StarterGui.WalkSpeed GUI.MFrame2.Button3
+G2L["14"] = Instance.new("TextButton", G2L["e"]);
+G2L["14"]["TextWrapped"] = true;
+G2L["14"]["BorderSizePixel"] = 0;
+G2L["14"]["TextSize"] = 14;
+G2L["14"]["TextScaled"] = true;
+G2L["14"]["TextColor3"] = Color3.fromRGB(0, 0, 0);
+G2L["14"]["BackgroundColor3"] = Color3.fromRGB(208, 247, 255);
+G2L["14"]["FontFace"] = Font.new([[rbxasset://fonts/families/SourceSansPro.json]], Enum.FontWeight.Regular, Enum.FontStyle.Normal);
+G2L["14"]["Size"] = UDim2.new(0, 268, 0, 57);
+G2L["14"]["BorderColor3"] = Color3.fromRGB(0, 0, 0);
+G2L["14"]["Text"] = [[Fast Run]];
+G2L["14"]["Name"] = [[Button3]];
+G2L["14"]["Position"] = UDim2.new(0.05333, 0, 0.4285, 0);
 
-TextLabel_5.Parent = FrameFLY
-TextLabel_5.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
-TextLabel_5.BorderColor3 = Color3.fromRGB(0, 0, 0)
-TextLabel_5.BorderSizePixel = 0
-TextLabel_5.Position = UDim2.new(0.0360372029, 0, 0.34468323, 0)
-TextLabel_5.Size = UDim2.new(0, 174, 0, 111)
-TextLabel_5.Font = Enum.Font.SourceSans
-TextLabel_5.Text = "You Move W, S, A, D . Keyboard Down LIFTshift and UP Space"
-TextLabel_5.TextColor3 = Color3.fromRGB(0, 0, 0)
-TextLabel_5.TextScaled = true
-TextLabel_5.TextSize = 14.000
-TextLabel_5.TextWrapped = true
 
-UICorner_19.Parent = FrameFLY
+-- StarterGui.WalkSpeed GUI.MFrame2.Button3.UICorner
+G2L["15"] = Instance.new("UICorner", G2L["14"]);
 
-ButtonME.Name = "ButtonME"
-ButtonME.Parent = FrameFLY
-ButtonME.BackgroundColor3 = Color3.fromRGB(255, 11, 11)
-ButtonME.BorderColor3 = Color3.fromRGB(0, 0, 0)
-ButtonME.BorderSizePixel = 0
-ButtonME.Size = UDim2.new(0, 77, 0, 36)
-ButtonME.Font = Enum.Font.SourceSans
-ButtonME.Text = "Close"
-ButtonME.TextColor3 = Color3.fromRGB(0, 0, 0)
-ButtonME.TextSize = 14.000
 
-UICorner_20.Parent = ButtonME
 
--- Scripts:
+-- StarterGui.WalkSpeed GUI.MFrame2.Button4
+G2L["16"] = Instance.new("TextButton", G2L["e"]);
+G2L["16"]["TextWrapped"] = true;
+G2L["16"]["BorderSizePixel"] = 0;
+G2L["16"]["TextSize"] = 14;
+G2L["16"]["TextScaled"] = true;
+G2L["16"]["TextColor3"] = Color3.fromRGB(0, 0, 0);
+G2L["16"]["BackgroundColor3"] = Color3.fromRGB(208, 247, 255);
+G2L["16"]["FontFace"] = Font.new([[rbxasset://fonts/families/SourceSansPro.json]], Enum.FontWeight.Regular, Enum.FontStyle.Normal);
+G2L["16"]["Size"] = UDim2.new(0, 268, 0, 57);
+G2L["16"]["BorderColor3"] = Color3.fromRGB(0, 0, 0);
+G2L["16"]["Text"] = [[Very fast Run]];
+G2L["16"]["Name"] = [[Button4]];
+G2L["16"]["Position"] = UDim2.new(0.05333, 0, 0.72982, 0);
 
-local function LNII_fake_script() -- MFrame.MainScript 
-	local script = Instance.new('LocalScript', MFrame)
 
+-- StarterGui.WalkSpeed GUI.MFrame2.Button4.UICorner
+G2L["17"] = Instance.new("UICorner", G2L["16"]);
+
+
+
+-- StarterGui.WalkSpeed GUI.MFrame2.Button5
+G2L["18"] = Instance.new("TextButton", G2L["e"]);
+G2L["18"]["TextWrapped"] = true;
+G2L["18"]["BorderSizePixel"] = 0;
+G2L["18"]["TextSize"] = 14;
+G2L["18"]["TextScaled"] = true;
+G2L["18"]["TextColor3"] = Color3.fromRGB(0, 0, 0);
+G2L["18"]["BackgroundColor3"] = Color3.fromRGB(208, 247, 255);
+G2L["18"]["FontFace"] = Font.new([[rbxasset://fonts/families/SourceSansPro.json]], Enum.FontWeight.Regular, Enum.FontStyle.Normal);
+G2L["18"]["Size"] = UDim2.new(0, 268, 0, 57);
+G2L["18"]["BorderColor3"] = Color3.fromRGB(0, 0, 0);
+G2L["18"]["Text"] = [[Very Run]];
+G2L["18"]["Name"] = [[Button5]];
+G2L["18"]["Position"] = UDim2.new(0.05333, 0, 0.57916, 0);
+
+
+-- StarterGui.WalkSpeed GUI.MFrame2.Button5.UICorner
+G2L["19"] = Instance.new("UICorner", G2L["18"]);
+
+
+
+-- StarterGui.WalkSpeed GUI.MFrame2.TextLabel
+G2L["1a"] = Instance.new("TextLabel", G2L["e"]);
+G2L["1a"]["TextWrapped"] = true;
+G2L["1a"]["BorderSizePixel"] = 0;
+G2L["1a"]["TextSize"] = 14;
+G2L["1a"]["TextScaled"] = true;
+G2L["1a"]["BackgroundColor3"] = Color3.fromRGB(230, 255, 255);
+G2L["1a"]["FontFace"] = Font.new([[rbxasset://fonts/families/SourceSansPro.json]], Enum.FontWeight.Regular, Enum.FontStyle.Normal);
+G2L["1a"]["TextColor3"] = Color3.fromRGB(0, 0, 0);
+G2L["1a"]["Size"] = UDim2.new(0, 300, 0, 50);
+G2L["1a"]["BorderColor3"] = Color3.fromRGB(0, 0, 0);
+G2L["1a"]["Text"] = [[Walk Button]];
+G2L["1a"]["Position"] = UDim2.new(0, 0, -0.03951, 0);
+
+
+-- StarterGui.WalkSpeed GUI.MFrame2.TextLabel.UICorner
+G2L["1b"] = Instance.new("UICorner", G2L["1a"]);
+
+
+
+-- StarterGui.WalkSpeed GUI.MFrame2.Button2
+G2L["1c"] = Instance.new("TextButton", G2L["e"]);
+G2L["1c"]["TextWrapped"] = true;
+G2L["1c"]["BorderSizePixel"] = 0;
+G2L["1c"]["TextSize"] = 14;
+G2L["1c"]["TextScaled"] = true;
+G2L["1c"]["TextColor3"] = Color3.fromRGB(0, 0, 0);
+G2L["1c"]["BackgroundColor3"] = Color3.fromRGB(208, 247, 255);
+G2L["1c"]["FontFace"] = Font.new([[rbxasset://fonts/families/SourceSansPro.json]], Enum.FontWeight.Regular, Enum.FontStyle.Normal);
+G2L["1c"]["Size"] = UDim2.new(0, 268, 0, 57);
+G2L["1c"]["ClipsDescendants"] = true;
+G2L["1c"]["BorderColor3"] = Color3.fromRGB(0, 0, 0);
+G2L["1c"]["Text"] = [[Run2]];
+G2L["1c"]["Name"] = [[Button2]];
+G2L["1c"]["Position"] = UDim2.new(0.05333, 0, 0.27542, 0);
+
+
+-- StarterGui.WalkSpeed GUI.MFrame2.Button2.UICorner
+G2L["1d"] = Instance.new("UICorner", G2L["1c"]);
+
+
+
+-- StarterGui.WalkSpeed GUI.MFrame2.NormalW
+G2L["1e"] = Instance.new("TextButton", G2L["e"]);
+G2L["1e"]["TextWrapped"] = true;
+G2L["1e"]["BorderSizePixel"] = 0;
+G2L["1e"]["TextSize"] = 14;
+G2L["1e"]["TextScaled"] = true;
+G2L["1e"]["TextColor3"] = Color3.fromRGB(0, 0, 0);
+G2L["1e"]["BackgroundColor3"] = Color3.fromRGB(222, 222, 222);
+G2L["1e"]["FontFace"] = Font.new([[rbxasset://fonts/families/SourceSansPro.json]], Enum.FontWeight.Regular, Enum.FontStyle.Normal);
+G2L["1e"]["Size"] = UDim2.new(0, 267, 0, 50);
+G2L["1e"]["BorderColor3"] = Color3.fromRGB(0, 0, 0);
+G2L["1e"]["Text"] = [[Normal Walk]];
+G2L["1e"]["Name"] = [[NormalW]];
+G2L["1e"]["Position"] = UDim2.new(0.05667, 0, 0.87352, 0);
+
+
+-- StarterGui.WalkSpeed GUI.MFrame2.NormalW.UICorner
+G2L["1f"] = Instance.new("UICorner", G2L["1e"]);
+
+
+
+-- StarterGui.WalkSpeed GUI.Frame
+G2L["20"] = Instance.new("Frame", G2L["1"]);
+G2L["20"]["BorderSizePixel"] = 0;
+G2L["20"]["BackgroundColor3"] = Color3.fromRGB(255, 255, 255);
+G2L["20"]["Size"] = UDim2.new(0, 470, 0, 509);
+G2L["20"]["Position"] = UDim2.new(0, 152, 0, 76);
+G2L["20"]["BorderColor3"] = Color3.fromRGB(0, 0, 0);
+
+
+-- StarterGui.WalkSpeed GUI.Frame.LocalScript
+G2L["21"] = Instance.new("LocalScript", G2L["20"]);
+
+
+
+-- StarterGui.WalkSpeed GUI.Frame.Drag
+G2L["22"] = Instance.new("LocalScript", G2L["20"]);
+G2L["22"]["Name"] = [[Drag]];
+
+
+-- StarterGui.WalkSpeed GUI.Frame.UICorner
+G2L["23"] = Instance.new("UICorner", G2L["20"]);
+
+
+
+-- StarterGui.WalkSpeed GUI.Frame.Number
+G2L["24"] = Instance.new("ImageButton", G2L["20"]);
+G2L["24"]["BorderSizePixel"] = 0;
+-- [ERROR] cannot convert PressedImageContent, please report to "https://github.com/uniquadev/GuiToLuaConverter/issues"
+G2L["24"]["BackgroundColor3"] = Color3.fromRGB(255, 255, 255);
+G2L["24"]["Image"] = [[rbxassetid://74391208102778]];
+G2L["24"]["Size"] = UDim2.new(0, 316, 0, 177);
+G2L["24"]["BorderColor3"] = Color3.fromRGB(0, 0, 0);
+G2L["24"]["Name"] = [[Number]];
+G2L["24"]["PressedImage"] = [[rbxassetid://74391208102778]];
+G2L["24"]["Position"] = UDim2.new(0.0599, 0, 0.1497, 0);
+
+
+-- StarterGui.WalkSpeed GUI.Frame.Number.UICorner
+G2L["25"] = Instance.new("UICorner", G2L["24"]);
+
+
+
+-- StarterGui.WalkSpeed GUI.Frame.Button
+G2L["26"] = Instance.new("ImageButton", G2L["20"]);
+G2L["26"]["BorderSizePixel"] = 0;
+G2L["26"]["BackgroundColor3"] = Color3.fromRGB(255, 255, 255);
+G2L["26"]["Image"] = [[rbxassetid://89160442840860]];
+G2L["26"]["Size"] = UDim2.new(0, 316, 0, 153);
+G2L["26"]["BorderColor3"] = Color3.fromRGB(0, 0, 0);
+G2L["26"]["Name"] = [[Button]];
+G2L["26"]["Position"] = UDim2.new(0.0599, 0, 0.51522, 0);
+
+
+-- StarterGui.WalkSpeed GUI.Frame.Button.UICorner
+G2L["27"] = Instance.new("UICorner", G2L["26"]);
+
+
+
+-- StarterGui.WalkSpeed GUI.Frame.TextLabel
+G2L["28"] = Instance.new("TextLabel", G2L["20"]);
+G2L["28"]["TextWrapped"] = true;
+G2L["28"]["BorderSizePixel"] = 0;
+G2L["28"]["TextSize"] = 14;
+G2L["28"]["TextScaled"] = true;
+G2L["28"]["BackgroundColor3"] = Color3.fromRGB(255, 255, 255);
+G2L["28"]["FontFace"] = Font.new([[rbxasset://fonts/families/SourceSansPro.json]], Enum.FontWeight.Regular, Enum.FontStyle.Normal);
+G2L["28"]["TextColor3"] = Color3.fromRGB(0, 0, 0);
+G2L["28"]["Size"] = UDim2.new(0, 387, 0, 50);
+G2L["28"]["BorderColor3"] = Color3.fromRGB(0, 0, 0);
+G2L["28"]["Text"] = [[Welcome to WalkSpeed GUI V3]];
+G2L["28"]["Position"] = UDim2.new(0.04695, 0, 0.04367, 0);
+
+
+-- StarterGui.WalkSpeed GUI.Frame.Close
+G2L["29"] = Instance.new("TextButton", G2L["20"]);
+G2L["29"]["TextWrapped"] = true;
+G2L["29"]["BorderSizePixel"] = 0;
+G2L["29"]["TextSize"] = 14;
+G2L["29"]["TextScaled"] = true;
+G2L["29"]["TextColor3"] = Color3.fromRGB(0, 0, 0);
+G2L["29"]["BackgroundColor3"] = Color3.fromRGB(255, 0, 0);
+G2L["29"]["FontFace"] = Font.new([[rbxasset://fonts/families/SourceSansPro.json]], Enum.FontWeight.Regular, Enum.FontStyle.Normal);
+G2L["29"]["Size"] = UDim2.new(0, 295, 0, 58);
+G2L["29"]["BorderColor3"] = Color3.fromRGB(0, 0, 0);
+G2L["29"]["Text"] = [[Close]];
+G2L["29"]["Name"] = [[Close]];
+G2L["29"]["Position"] = UDim2.new(0.04581, 0, 0.97598, 0);
+
+
+-- StarterGui.WalkSpeed GUI.Frame.Close.UICorner
+G2L["2a"] = Instance.new("UICorner", G2L["29"]);
+
+
+
+-- StarterGui.WalkSpeed GUI.Frame.ButtonFly
+G2L["2b"] = Instance.new("TextButton", G2L["20"]);
+G2L["2b"]["TextWrapped"] = true;
+G2L["2b"]["BorderSizePixel"] = 0;
+G2L["2b"]["TextSize"] = 14;
+G2L["2b"]["TextScaled"] = true;
+G2L["2b"]["TextColor3"] = Color3.fromRGB(0, 0, 0);
+G2L["2b"]["BackgroundColor3"] = Color3.fromRGB(212, 215, 255);
+G2L["2b"]["FontFace"] = Font.new([[rbxasset://fonts/families/SourceSansPro.json]], Enum.FontWeight.Regular, Enum.FontStyle.Normal);
+G2L["2b"]["Size"] = UDim2.new(0, 102, 0, 57);
+G2L["2b"]["BorderColor3"] = Color3.fromRGB(0, 0, 0);
+G2L["2b"]["Text"] = [[Fly ONLY PC]];
+G2L["2b"]["Name"] = [[ButtonFly]];
+G2L["2b"]["Position"] = UDim2.new(0.76383, 0, 0.1945, 0);
+
+
+-- StarterGui.WalkSpeed GUI.Frame.ButtonFly.UICorner
+G2L["2c"] = Instance.new("UICorner", G2L["2b"]);
+
+
+
+-- StarterGui.WalkSpeed GUI.Frame.Update
+G2L["2d"] = Instance.new("TextLabel", G2L["20"]);
+G2L["2d"]["TextWrapped"] = true;
+G2L["2d"]["BorderSizePixel"] = 0;
+G2L["2d"]["TextSize"] = 14;
+G2L["2d"]["TextXAlignment"] = Enum.TextXAlignment.Left;
+G2L["2d"]["TextYAlignment"] = Enum.TextYAlignment.Top;
+G2L["2d"]["BackgroundColor3"] = Color3.fromRGB(255, 255, 255);
+G2L["2d"]["FontFace"] = Font.new([[rbxasset://fonts/families/SourceSansPro.json]], Enum.FontWeight.Regular, Enum.FontStyle.Normal);
+G2L["2d"]["TextColor3"] = Color3.fromRGB(0, 0, 0);
+G2L["2d"]["Size"] = UDim2.new(0, 109, 0, 332);
+G2L["2d"]["BorderColor3"] = Color3.fromRGB(0, 0, 0);
+G2L["2d"]["Text"] = [[Make Fly 09-04-2026]];
+G2L["2d"]["Name"] = [[Update]];
+G2L["2d"]["Position"] = UDim2.new(0.74681, 0, 0.3222, 0);
+
+
+-- StarterGui.WalkSpeed GUI.FrameFLY
+G2L["2e"] = Instance.new("Frame", G2L["1"]);
+G2L["2e"]["Visible"] = false;
+G2L["2e"]["BorderSizePixel"] = 0;
+G2L["2e"]["BackgroundColor3"] = Color3.fromRGB(228, 255, 216);
+G2L["2e"]["Size"] = UDim2.new(0, 188, 0, 288);
+G2L["2e"]["Position"] = UDim2.new(0.24726, 0, 0.14754, 0);
+G2L["2e"]["BorderColor3"] = Color3.fromRGB(0, 0, 0);
+G2L["2e"]["Name"] = [[FrameFLY]];
+
+
+-- StarterGui.WalkSpeed GUI.FrameFLY.LocalScript
+G2L["2f"] = Instance.new("LocalScript", G2L["2e"]);
+
+
+
+-- StarterGui.WalkSpeed GUI.FrameFLY.Drag
+G2L["30"] = Instance.new("LocalScript", G2L["2e"]);
+G2L["30"]["Name"] = [[Drag]];
+
+
+-- StarterGui.WalkSpeed GUI.FrameFLY.FLY Only PC
+G2L["31"] = Instance.new("TextLabel", G2L["2e"]);
+G2L["31"]["TextWrapped"] = true;
+G2L["31"]["BorderSizePixel"] = 0;
+G2L["31"]["TextSize"] = 14;
+G2L["31"]["TextScaled"] = true;
+G2L["31"]["BackgroundColor3"] = Color3.fromRGB(255, 255, 255);
+G2L["31"]["FontFace"] = Font.new([[rbxasset://fonts/families/SourceSansPro.json]], Enum.FontWeight.Regular, Enum.FontStyle.Normal);
+G2L["31"]["TextColor3"] = Color3.fromRGB(0, 0, 0);
+G2L["31"]["Size"] = UDim2.new(0, 160, 0, 50);
+G2L["31"]["BorderColor3"] = Color3.fromRGB(0, 0, 0);
+G2L["31"]["Text"] = [[FLY only PC]];
+G2L["31"]["Name"] = [[FLY Only PC]];
+G2L["31"]["Position"] = UDim2.new(0.03098, 0, 0.16968, 0);
+
+
+-- StarterGui.WalkSpeed GUI.FrameFLY.FlyButton
+G2L["32"] = Instance.new("TextButton", G2L["2e"]);
+G2L["32"]["BorderSizePixel"] = 0;
+G2L["32"]["TextSize"] = 14;
+G2L["32"]["TextColor3"] = Color3.fromRGB(0, 0, 0);
+G2L["32"]["BackgroundColor3"] = Color3.fromRGB(254, 255, 145);
+G2L["32"]["FontFace"] = Font.new([[rbxasset://fonts/families/SourceSansPro.json]], Enum.FontWeight.Regular, Enum.FontStyle.Normal);
+G2L["32"]["Size"] = UDim2.new(0, 120, 0, 50);
+G2L["32"]["BorderColor3"] = Color3.fromRGB(0, 0, 0);
+G2L["32"]["Text"] = [[Fly]];
+G2L["32"]["Name"] = [[FlyButton]];
+G2L["32"]["Position"] = UDim2.new(0.12496, 0, 0.75888, 0);
+
+
+-- StarterGui.WalkSpeed GUI.FrameFLY.FlyButton.UICorner
+G2L["33"] = Instance.new("UICorner", G2L["32"]);
+
+
+
+-- StarterGui.WalkSpeed GUI.FrameFLY.TextLabel
+G2L["34"] = Instance.new("TextLabel", G2L["2e"]);
+G2L["34"]["TextWrapped"] = true;
+G2L["34"]["BorderSizePixel"] = 0;
+G2L["34"]["TextSize"] = 14;
+G2L["34"]["TextScaled"] = true;
+G2L["34"]["BackgroundColor3"] = Color3.fromRGB(255, 255, 255);
+G2L["34"]["FontFace"] = Font.new([[rbxasset://fonts/families/SourceSansPro.json]], Enum.FontWeight.Regular, Enum.FontStyle.Normal);
+G2L["34"]["TextColor3"] = Color3.fromRGB(0, 0, 0);
+G2L["34"]["Size"] = UDim2.new(0, 174, 0, 111);
+G2L["34"]["BorderColor3"] = Color3.fromRGB(0, 0, 0);
+G2L["34"]["Text"] = [[You Move W, S, A, D . Keyboard Down LIFTshift and UP Space]];
+G2L["34"]["Position"] = UDim2.new(0.03604, 0, 0.34468, 0);
+
+
+-- StarterGui.WalkSpeed GUI.FrameFLY.UICorner
+G2L["35"] = Instance.new("UICorner", G2L["2e"]);
+
+
+
+-- StarterGui.WalkSpeed GUI.FrameFLY.ButtonME
+G2L["36"] = Instance.new("TextButton", G2L["2e"]);
+G2L["36"]["BorderSizePixel"] = 0;
+G2L["36"]["TextSize"] = 14;
+G2L["36"]["TextColor3"] = Color3.fromRGB(0, 0, 0);
+G2L["36"]["BackgroundColor3"] = Color3.fromRGB(255, 12, 12);
+G2L["36"]["FontFace"] = Font.new([[rbxasset://fonts/families/SourceSansPro.json]], Enum.FontWeight.Regular, Enum.FontStyle.Normal);
+G2L["36"]["Size"] = UDim2.new(0, 77, 0, 36);
+G2L["36"]["BorderColor3"] = Color3.fromRGB(0, 0, 0);
+G2L["36"]["Text"] = [[Close]];
+G2L["36"]["Name"] = [[ButtonME]];
+
+
+-- StarterGui.WalkSpeed GUI.FrameFLY.ButtonME.UICorner
+G2L["37"] = Instance.new("UICorner", G2L["36"]);
+
+
+
+-- StarterGui.WalkSpeed GUI.MFrame.MainScript
+local function C_3()
+local script = G2L["3"];
 	local button = script.Parent.ApplyButton
 	local textBox = button.Parent:WaitForChild("SpeedBox")
 	local button2 = script.Parent.Normal
 	local player = game.Players.LocalPlayer
 	local gui = script.Parent.Parent.MFrame
 	local runService = game:GetService("RunService")
-	local player = game:GetService("Players").LocalPlayer
 	local tweenService = game:GetService("TweenService")
 	local UIS = game:GetService("UserInputService")
 	
@@ -494,11 +597,11 @@ local function LNII_fake_script() -- MFrame.MainScript
 		humanoid.WalkSpeed = 16 -- default is 16
 	end)
 	
-end
-coroutine.wrap(LNII_fake_script)()
-local function BOAD_fake_script() -- MFrame.Drag 
-	local script = Instance.new('LocalScript', MFrame)
-
+end;
+task.spawn(C_3);
+-- StarterGui.WalkSpeed GUI.MFrame.Drag
+local function C_4()
+local script = G2L["4"];
 	local UserInputService = game:GetService("UserInputService")
 	
 	local gui = script.Parent
@@ -538,11 +641,11 @@ local function BOAD_fake_script() -- MFrame.Drag
 			update(input)
 		end
 	end)
-end
-coroutine.wrap(BOAD_fake_script)()
-local function ZOYJ_fake_script() -- MFrame2.MainScript2 
-	local script = Instance.new('LocalScript', MFrame2)
-
+end;
+task.spawn(C_4);
+-- StarterGui.WalkSpeed GUI.MFrame2.MainScript2
+local function C_f()
+local script = G2L["f"];
 	local player = game.Players.LocalPlayer
 	local button1 = script.Parent:WaitForChild("Button1")
 	local button2 = script.Parent:WaitForChild("Button2")
@@ -553,7 +656,6 @@ local function ZOYJ_fake_script() -- MFrame2.MainScript2
 	local player = game.Players.LocalPlayer
 	local gui = script.Parent.Parent.MFrame2
 	local runService = game:GetService("RunService")
-	local player = game:GetService("Players").LocalPlayer
 	local tweenService = game:GetService("TweenService")
 	
 	-- Create UIScale
@@ -636,11 +738,11 @@ local function ZOYJ_fake_script() -- MFrame2.MainScript2
 		
 		humanoid.WalkSpeed = 16
 	end)
-end
-coroutine.wrap(ZOYJ_fake_script)()
-local function PFEWOXN_fake_script() -- MFrame2.Drag 
-	local script = Instance.new('LocalScript', MFrame2)
-
+end;
+task.spawn(C_f);
+-- StarterGui.WalkSpeed GUI.MFrame2.Drag
+local function C_10()
+local script = G2L["10"];
 	local UserInputService = game:GetService("UserInputService")
 	
 	local gui = script.Parent
@@ -680,11 +782,11 @@ local function PFEWOXN_fake_script() -- MFrame2.Drag
 			update(input)
 		end
 	end)
-end
-coroutine.wrap(PFEWOXN_fake_script)()
-local function LBDYBS_fake_script() -- Frame.LocalScript 
-	local script = Instance.new('LocalScript', Frame)
-
+end;
+task.spawn(C_10);
+-- StarterGui.WalkSpeed GUI.Frame.LocalScript
+local function C_21()
+local script = G2L["21"];
 	local button1 = script.Parent:WaitForChild("Number")
 	local button2 = script.Parent:WaitForChild("Button")
 	local button3 = script.Parent:WaitForChild("Close")
@@ -745,11 +847,11 @@ local function LBDYBS_fake_script() -- Frame.LocalScript
 		updateScale()
 	end)
 	
-end
-coroutine.wrap(LBDYBS_fake_script)()
-local function ATEYPJ_fake_script() -- Frame.Drag 
-	local script = Instance.new('LocalScript', Frame)
-
+end;
+task.spawn(C_21);
+-- StarterGui.WalkSpeed GUI.Frame.Drag
+local function C_22()
+local script = G2L["22"];
 	local UserInputService = game:GetService("UserInputService")
 	
 	local gui = script.Parent
@@ -789,11 +891,11 @@ local function ATEYPJ_fake_script() -- Frame.Drag
 			update(input)
 		end
 	end)
-end
-coroutine.wrap(ATEYPJ_fake_script)()
-local function WYVBDP_fake_script() -- FrameFLY.LocalScript 
-	local script = Instance.new('LocalScript', FrameFLY)
-
+end;
+task.spawn(C_22);
+-- StarterGui.WalkSpeed GUI.FrameFLY.LocalScript
+local function C_2f()
+local script = G2L["2f"];
 	local button = script.Parent.FlyButton
 	local player = game.Players.LocalPlayer
 	local Close = script.Parent.ButtonME
@@ -871,11 +973,11 @@ local function WYVBDP_fake_script() -- FrameFLY.LocalScript
 		script.Parent.Visible = false
 	end)
 	
-end
-coroutine.wrap(WYVBDP_fake_script)()
-local function JBQVPA_fake_script() -- FrameFLY.Drag 
-	local script = Instance.new('LocalScript', FrameFLY)
-
+end;
+task.spawn(C_2f);
+-- StarterGui.WalkSpeed GUI.FrameFLY.Drag
+local function C_30()
+local script = G2L["30"];
 	local UserInputService = game:GetService("UserInputService")
 	
 	local gui = script.Parent
@@ -915,5 +1017,7 @@ local function JBQVPA_fake_script() -- FrameFLY.Drag
 			update(input)
 		end
 	end)
-end
-coroutine.wrap(JBQVPA_fake_script)()
+end;
+task.spawn(C_30);
+
+return G2L["1"], require;
